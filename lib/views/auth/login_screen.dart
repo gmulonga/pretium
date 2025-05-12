@@ -90,7 +90,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            AppRoutes.forgotPassword,
+                          );
+                        },
                         child: Text(
                           "Forgot Password?",
                           style: TextStyle(
