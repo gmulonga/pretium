@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
 
   final List<IconData> icons = [
     Icons.credit_card,
-    Icons.wallet,
+    Icons.account_balance_wallet_outlined,
     Icons.receipt_long,
   ];
 

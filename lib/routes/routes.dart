@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pretium/views/dashboard.dart';
 import 'package:pretium/views/homepage.dart';
 import 'package:pretium/views/auth/login_screen.dart';
 import 'package:pretium/views/get_started.dart';
@@ -9,6 +10,7 @@ class AppRoutes {
   static const String login = '/login';
   static const String getStarted = '/getStarted';
   static const String register = '/register';
+  static const String navigation = '/navigation';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -20,6 +22,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => Home());
       case register:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
+      case navigation:
+        return MaterialPageRoute(builder: (_) => Navigation());
 
       default:
         return MaterialPageRoute(

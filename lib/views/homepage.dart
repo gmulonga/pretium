@@ -108,7 +108,7 @@ class _DashboardState extends State<Dashboard> {
                             borderRadius: BorderRadius.circular(16),
                           ),
                           child: Icon(
-                            Icons.wallet_outlined,
+                            Icons.account_balance_wallet_outlined,
                             color: kWhite,
                             size: 25,
                           ),

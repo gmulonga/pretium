@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Icon(
-                      Icons.wallet_outlined,
+                      Icons.account_balance_wallet_outlined,
                       color: kDarkGreen,
                       size: 35,
                     ),
@@ -88,9 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ],
                       ),
                       GestureDetector(
-                        onTap: () {
-                          // Handle forgot password tap
-                        },
+                        onTap: () {},
                         child: Text(
                           "Forgot Password?",
                           style: TextStyle(
@@ -107,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: CustomButton(
                     callBackFunction: () {
-                      Navigator.pushNamed(context, AppRoutes.dashboard);
+                      Navigator.pushNamed(context, AppRoutes.navigation);
                     },
                     label: "Login",
                   ),
