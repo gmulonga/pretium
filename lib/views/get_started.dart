@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:pretium/routes/routes.dart';
 import 'package:pretium/widgets/custom_button.dart';
 import 'package:pretium/utils/constants.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:pretium/views/auth/login_screen.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -32,6 +32,12 @@ class _HomeState extends State<Home> {
   ];
 
   @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
@@ -49,7 +55,12 @@ class _HomeState extends State<Home> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        GestureDetector(onTap: () {}, child: Text('Skip')),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, AppRoutes.login);
+                          },
+                          child: Text('Skip'),
+                        ),
                       ],
                     ),
                   ),
@@ -141,12 +152,7 @@ class _HomeState extends State<Home> {
                           SizedBox(height: 10),
                           CustomButton(
                             callBackFunction: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LoginScreen(),
-                                ),
-                              );
+                              Navigator.pushNamed(context, AppRoutes.login);
                             },
                             label: 'Next',
                           ),
