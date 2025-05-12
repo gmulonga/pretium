@@ -9,6 +9,43 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   bool _hideBalance = false;
 
+  String _selectedCountry = "Kenya";
+  final List<String> _countries = [
+    "Kenya",
+    "Uganda",
+    "Nigeria",
+    "Ghana",
+    "Malawi",
+    "Zambia",
+    "Rwanda",
+  ];
+
+  void _showCountrySelector(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (context) {
+        return ListView(
+          shrinkWrap: true,
+          children:
+              _countries.map((country) {
+                return ListTile(
+                  title: Text(country),
+                  onTap: () {
+                    setState(() {
+                      _selectedCountry = country;
+                    });
+                    Navigator.pop(context);
+                  },
+                );
+              }).toList(),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -139,6 +176,165 @@ class _DashboardState extends State<Dashboard> {
                   ],
                 ),
               ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Card(
+              color: kWhite,
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Financial Services'),
+                        GestureDetector(
+                          onTap: () => _showCountrySelector(context),
+                          child: Row(
+                            children: [
+                              Text(
+                                _selectedCountry,
+                                style: TextStyle(
+                                  color: kDarkGreen,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              Icon(
+                                Icons.keyboard_arrow_down,
+                                color: kDarkGreen,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: kLightGreen,
+                                  shape: BoxShape.circle,
+                                ),
+                                alignment: Alignment.center,
+                                child: Icon(
+                                  Icons.telegram_sharp,
+                                  color: kDarkGreen,
+                                  size: 40,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text("Send Money"),
+                            ],
+                          ),
+                        ),
+                        Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: kLightGreen,
+                                  shape: BoxShape.circle,
+                                ),
+                                alignment: Alignment.center,
+                                child: Icon(
+                                  Icons.shopping_bag_outlined,
+                                  color: kDarkGreen,
+                                  size: 40,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text("Paybill"),
+                            ],
+                          ),
+                        ),
+                        Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  color: kLightGreen,
+                                  shape: BoxShape.circle,
+                                ),
+                                alignment: Alignment.center,
+                                child: Icon(
+                                  Icons.padding_outlined,
+                                  color: kDarkGreen,
+                                  size: 40,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text("Buy goods"),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: kLightGreen,
+                                shape: BoxShape.circle,
+                              ),
+                              alignment: Alignment.center,
+                              child: Icon(
+                                Icons.phone_android,
+                                color: kDarkGreen,
+                                size: 40,
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            Text("Airtime"),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Recent Transactions'),
+                Text('See all', style: TextStyle(color: kDarkGreen)),
+              ],
             ),
           ),
         ],
