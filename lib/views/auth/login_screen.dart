@@ -105,7 +105,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: screenHeight * 0.01),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: CustomButton(callBackFunction: () {}, label: "Login"),
+                  child: CustomButton(
+                    callBackFunction: () {
+                      Navigator.pushNamed(context, AppRoutes.dashboard);
+                    },
+                    label: "Login",
+                  ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 Row(
