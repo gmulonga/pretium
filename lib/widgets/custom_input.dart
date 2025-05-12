@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pretium/utils/constants.dart';
 
-class CustomInputField extends StatefulWidget {
-  CustomInputField({
+class InputField extends StatefulWidget {
+  InputField({
     required this.hintText,
     this.password = false,
     this.onChanged,
@@ -35,7 +35,7 @@ class CustomInputField extends StatefulWidget {
   _InputFieldState createState() => _InputFieldState();
 }
 
-class _InputFieldState extends State<CustomInputField> {
+class _InputFieldState extends State<InputField> {
   String? _errorMessage;
   bool _obscureText = true;
 

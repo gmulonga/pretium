@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pretium/routes/routes.dart';
 import 'package:pretium/utils/constants.dart';
 import 'package:pretium/widgets/custom_button.dart';
 import 'package:pretium/widgets/custom_input.dart';
@@ -43,7 +44,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 Center(
                   child: Text(
                     "Welcome Back!",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: kTitleFont,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.005),
@@ -51,16 +55,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: screenHeight * 0.02),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                  child: CustomInputField(
+                  child: InputField(
                     hintText: "Email",
                     icon: Icons.email_outlined,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                  child: CustomInputField(
+                  child: InputField(
                     hintText: "Password",
-                    icon: Icons.lock,
+                    icon: Icons.lock_outline,
                     password: true,
                   ),
                 ),
@@ -110,7 +114,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     Text("Don't have an account? "),
                     SizedBox(width: 10),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, AppRoutes.register);
+                      },
                       child: Text(
                         "Sign Up",
                         style: TextStyle(
