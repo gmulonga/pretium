@@ -56,6 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                   child: InputField(
+                    isRequired: true,
                     hintText: "Email",
                     icon: Icons.email_outlined,
                   ),
@@ -63,6 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                   child: InputField(
+                    isEnabled: true,
                     hintText: "Password",
                     icon: Icons.lock_outline,
                     password: true,
